@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -38,7 +39,7 @@ public class BacklogListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_backlog_list,container,false);
         mBacklogRecyclerView = (RecyclerView)view.findViewById(R.id.backlog_recycler_view);
         mBacklogRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        updateUI();//this is comment
+        updateUI();
         return view;
     }
 
@@ -72,8 +73,8 @@ public class BacklogListFragment extends Fragment {
 //    }
 
 //    private void updateSubtitle(){
-//        DiaryLab diaryLab = DiaryLab.get(getActivity());
-//        int diaryCount = diaryLab.getDiarys().size();
+//        BacklogLab backlogLab = BacklogLab.get(getActivity());
+//        int backlogCount = backlogLab.getBacklogs().size();
 //        String subtitle = getString(R.string.subtitle_format,backlogCount);
 //
 //        AppCompatActivity activity = (AppCompatActivity)getActivity();
@@ -105,6 +106,7 @@ public class BacklogListFragment extends Fragment {
             mTitleTextView = (TextView)itemView.findViewById(R.id.list_item_backlog_title_text_view);
             mDateTextView = (TextView)itemView.findViewById(R.id.list_item_backlog_date_text_view);
             mSolvedCheckBox = (CheckBox)itemView.findViewById(R.id.list_item_backlog_solved_check_box);
+
         }
 
         public void bindBacklog(Backlog backlog){
@@ -112,7 +114,14 @@ public class BacklogListFragment extends Fragment {
             mTitleTextView.setText(mBacklog.getTitle());
             SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd E");
             mDateTextView.setText(dt.format(mBacklog.getDate()));
+            mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    mBacklog.setSolved(!mBacklog.isSolved());
+                }
+            });
             mSolvedCheckBox.setChecked(mBacklog.isSolved());
+
         }
 
         @Override

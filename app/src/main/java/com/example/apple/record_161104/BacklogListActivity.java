@@ -18,11 +18,11 @@ public class BacklogListActivity extends SingleFragmentActivity {
     protected int getLayoutResId(){
         return R.layout.activity_twopane;
     }
-//
+
 //    @Override
 //    public FragmentManager getSupportFragmentManager() {
 //        super.getSupportFragmentManager().beginTransaction()
-//                .replace(R.id.diary_fragment_container,Diary).commit();
+//                .replace(R.id.fragment_container,Backlog).commit();
 //    }
 }
 

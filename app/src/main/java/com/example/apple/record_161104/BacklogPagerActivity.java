@@ -33,11 +33,19 @@ public class BacklogPagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_backlog_pager);
-        UUID diaryId = (UUID)getIntent().getSerializableExtra(EXTRA_BACKLOG_ID);
+        UUID backlogId = (UUID)getIntent().getSerializableExtra(EXTRA_BACKLOG_ID);
 
         mViewPager = (ViewPager)findViewById(R.id.activity_backlog_pager_view_pager);
 
         mBacklogs = BacklogLab.get(this).getBacklogs();
+        int index = 0;
+        for (int i = 0; i < mBacklogs.size(); i++) {
+            if (mBacklogs.get(i).getId().equals(backlogId)) {
+                index = i;
+                break;
+            }
+        }
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         mViewPager.setAdapter(new FragmentStatePagerAdapter(fragmentManager) {
             @Override
@@ -51,6 +59,8 @@ public class BacklogPagerActivity extends AppCompatActivity {
                 return mBacklogs.size();
             }
         });
+
+        mViewPager.setCurrentItem(index);
 
 //        for(int i = 0; i < mBacklogs.size();i++){
 //            if (mBacklogs.get(i).getId().equals(backlogId)){

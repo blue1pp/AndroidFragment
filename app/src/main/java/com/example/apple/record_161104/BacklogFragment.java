@@ -84,7 +84,7 @@ public class BacklogFragment extends Fragment {
             }
         });
 
-        mSolvedCheckBox = (CheckBox)v.findViewById(R.id.list_item_backlog_solved_check_box);
+        mSolvedCheckBox = (CheckBox)v.findViewById(R.id.backlog_solved);
         mSolvedCheckBox.setChecked(mBacklog.isSolved());
         mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -111,7 +111,7 @@ public class BacklogFragment extends Fragment {
     }
 
     private void updateDate() {
-        SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd");
+        SimpleDateFormat dt = new SimpleDateFormat("yyyy/MM/dd E");
         mDateButton.setText(dt.format(mBacklog.getDate()));
     }
 }
