@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_item_new_backlog"
+        android:icon="@drawable/ic_menu_add"
+        android:title="@string/new_diary"
+        app:showAsAction="ifRoom|withText"/>
+
+
+    <!--<item-->
+        <!--android:id="@+id/menu_item_show_subtitle"-->
+        <!--android:title="@string/show_subtitle"-->
+        <!--app:showAsAction="ifRoom"/>
+        下拉式新建菜单，可添加日记及待办
+        -->
+
+</menu>
