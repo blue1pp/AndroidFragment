@@ -68,7 +68,7 @@ public class BacklogFragment extends Fragment {
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(Editable s) {ajsjfals;lkdfl;asl;kj
 
             }
         });
