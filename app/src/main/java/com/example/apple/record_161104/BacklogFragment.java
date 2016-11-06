@@ -73,7 +73,7 @@ public class BacklogFragment extends Fragment {
             }
         });
         mDateButton = (Button)v.findViewById(R.id.backlog_date);
-        updateDate(); //COMMENT
+        updateDate();
         mDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

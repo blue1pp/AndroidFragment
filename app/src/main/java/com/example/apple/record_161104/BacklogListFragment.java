@@ -38,7 +38,7 @@ public class BacklogListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_backlog_list,container,false);
         mBacklogRecyclerView = (RecyclerView)view.findViewById(R.id.backlog_recycler_view);
         mBacklogRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        updateUI();//this is comment
+        updateUI();
         return view;
     }
 
